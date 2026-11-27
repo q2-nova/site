@@ -75,22 +75,27 @@ token = "Your Audiobookshelf API key"</code></pre>
   <section class="source-section" id="source" aria-labelledby="source-title">
     <div>
       <h2 id="source-title">Source code</h2>
-      <p>Repository links will appear here as they become available.</p>
+      <p>The five upstream forks are public. Q2-specific changes are being prepared for release.</p>
     </div>
     <dl class="source-repos">
-      <!-- Add each repository URL to its anchor when published. -->
-      <dt><a>q2-nova-app</a></dt>
-      <dd>The Q2 Nova streaming app.</dd>
-      <dt><a>q2-nova-kernel</a></dt>
-      <dd>The X2000 SoC port to mainline Linux 7.3.</dd>
-      <dt><a>q2-nova-os</a></dt>
-      <dd>The custom Buildroot operating system for the Shanling Q2.</dd>
-      <dt><a>q2-nova-toolchain</a></dt>
-      <dd>LLVM, Clang and Rust with optimizations for the X2000 SoC.</dd>
-      <dt><a>q2-nova-qemu</a></dt>
-      <dd>A QEMU emulator for the triple-core X2000 SoC, with a Q2 device model and a simulated power model.</dd>
-      <dt><a>q2-nova-factory</a></dt>
-      <dd>Tools for coding agents to customize software for the Q2.</dd>
+      <dt>q2-player</dt>
+      <dd>The music player, desktop and browser simulators, and the release recipe for the complete <code>update.tar</code>.</dd>
+      <dt>q2-os</dt>
+      <dd>The Q2 operating system, including system services, the SDK, installer and recovery tools.</dd>
+      <dt>q2-toolchain</dt>
+      <dd>Builds the C and Rust cross-compilers for the X2000 from matching LLVM and Rust revisions.</dd>
+      <dt>q2-factory</dt>
+      <dd>Planned home for coding-agent workflows, test media, and end-to-end tests on the emulator and real player.</dd>
+      <dt><a href="https://github.com/q2-nova/linux">linux</a></dt>
+      <dd>Linux kernel fork for the Q2 board, device drivers and kernel configuration.</dd>
+      <dt><a href="https://github.com/q2-nova/buildroot">buildroot</a></dt>
+      <dd>Buildroot fork for changes to the build system used by q2-os.</dd>
+      <dt><a href="https://github.com/q2-nova/llvm-project">llvm-project</a></dt>
+      <dd>LLVM and Clang fork for X2000 code generation and compiler target support.</dd>
+      <dt><a href="https://github.com/q2-nova/rust">rust</a></dt>
+      <dd>Rust compiler and standard library sources used by q2-toolchain.</dd>
+      <dt><a href="https://github.com/q2-nova/qemu">qemu</a></dt>
+      <dd>QEMU fork for the XBurst CPU, X2000 peripherals and Q2 device model.</dd>
     </dl>
   </section>
 </main>
