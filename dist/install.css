@@ -11,8 +11,6 @@
 .release .eyebrow { margin-bottom: .45rem; }
 .package-link { display: inline-block; color: inherit; text-decoration-thickness: .045em; text-underline-offset: .14em; font: 600 clamp(2.25rem,3.9vw,4.1rem)/1.2 ui-monospace,monospace; letter-spacing: -.075em; }
 .package-link[href]:hover { color: #684b83; }
-#package-note { margin-top: .65rem; color: #606064; font: .875rem/1.5 ui-monospace, monospace; overflow-wrap: anywhere; }
-#package-note code { font: inherit; }
 .install-photo { margin: 0; }
 .install-photo img { display: block; width: 100%; height: auto; border-radius: 1rem; }
 .install-photo figcaption { margin-top: .5rem; color: #63596b; font-size: .85rem; }
