@@ -38,3 +38,9 @@ The Features player opens at the main menu. In the Demo, page scroll drives the 
 Edit the embedded player wrapper in `simulator/embed.template.html`, the chassis styling in `dist/studio/embed.css`, and the outside controls in `dist/studio/audio-control.css`. The simulator guide covers rebuilding the embed, regenerating its navigation map, and testing the site. [Simulator guide](simulator/README.md)
 
 The gallery shows the firmware itself. The device photographs are credited to Shanling on the site. A public reuse license for those photographs has not been established. Music and font attribution accompany the bundled assets. [Audio credits](dist/studio/Audio-samples-CREDITS.txt) · [Font license](dist/studio/OpenSans-LICENSE.txt)
+
+## Contributing
+
+[CONTRIBUTING.md](CONTRIBUTING.md) covers changing and checking the site.
+Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
+Participation follows the [code of conduct](CODE_OF_CONDUCT.md).

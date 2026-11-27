@@ -18,7 +18,7 @@
 
     </div><aside class="release" aria-labelledby="release-title">
         <p class="eyebrow" id="release-title"><a href="https://github.com/q2-nova/q2-player/releases/latest">Q2 Nova Firmware</a></p>
-        <a class="package-link" href="https://github.com/q2-nova/q2-player/releases/latest/download/update.tar">update.tar</a>
+        <a class="package-link" href="https://github.com/q2-nova/q2-player/releases/latest">update.tar</a>
       </aside>
 
   </header>
@@ -72,7 +72,7 @@ token = "Your Audiobookshelf API key"</code></pre>
   <section class="source-section" id="source" aria-labelledby="source-title">
     <div>
       <h2 id="source-title">Source code</h2>
-      <p>The player, OS, toolchain and network daemon currently require GitHub access. The five upstream forks are public.</p>
+      <p>The player, OS, toolchain, network daemon and their upstream forks are public on GitHub. Start with q2-player to build or change the player.</p>
     </div>
     <dl class="source-repos">
       <dt><a href="https://github.com/q2-nova/q2-player">q2-player</a></dt>
@@ -93,6 +93,8 @@ token = "Your Audiobookshelf API key"</code></pre>
       <dd>Rust compiler and standard library sources used by q2-toolchain.</dd>
       <dt><a href="https://github.com/q2-nova/qemu">qemu</a></dt>
       <dd>QEMU fork for the XBurst CPU, X2000 peripherals and Q2 device model.</dd>
+      <dt><a href="https://github.com/q2-nova/tokio">tokio</a></dt>
+      <dd>Tokio fork whose timer wakes the runtime thread once per expiry, used by the player and tsrs.</dd>
     </dl>
   </section>
 </main>
