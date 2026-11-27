@@ -10,7 +10,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  links:
+    uses: ./.github/workflows/links.yml
+    permissions:
+      contents: read
+
   package:
+    needs: links
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:

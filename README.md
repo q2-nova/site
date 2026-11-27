@@ -17,6 +17,14 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
 
 The three pages and their stylesheets live in `dist/`. That directory can also be opened in a visual HTML editor or deployed to a static host. The bundled simulator, screenshots and audio previews work offline.
 
+## Check site links
+
+CI checks every HTML page in `dist/` on pull requests, pushes to `main`, and before Pages publication. It checks linked files and fragment targets in the checkout and follows external links as a signed-out visitor. To reproduce the check with lychee 0.24.2, run:
+
+```sh
+lychee --no-progress --include-fragments --include-verbatim --max-retries 2 'dist/**/*.html'
+```
+
 ## GitHub Pages
 
 The project site URL is `https://q2-nova.github.io/site/`. The deployment workflow packages the contents of `dist/`, including the bundled player.
