@@ -1,6 +1,11 @@
 # Q2 Nova site
 
-The Q2 Nova website introduces the firmware for the Shanling Q2. Features opens with an interactive player, Demo takes visitors through six chapters using the actual WebAssembly simulator, and Install covers firmware installation and first setup on the device.
+This is the website for Q2 Nova, the music and audiobook player for the
+Shanling Q2. Try its wheel and menus in your browser, take a guided tour,
+or read about installing it on the device. [Visit the site](https://q2-nova.github.io/site/) · [Try the demo](https://q2-nova.github.io/site/demo.html)
+
+Edit this repository to change the site, tour or embedded demo. The player
+itself lives in a separate repository. [Q2 Nova player](https://github.com/q2-nova/q2-player)
 
 ## Run locally
 
