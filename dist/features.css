@@ -1,8 +1,14 @@
-.feature-gallery,
+.feature-gallery {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
 .feature-offline,
-.feature-compare,
+.other-features {
+  padding-block: clamp(2rem, 3.75vw, 3.25rem);
+}
+
 .feature-install {
-  padding-block: clamp(3rem, 7vw, 6rem);
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .feature-heading {
@@ -11,7 +17,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: .75rem 2rem;
-  margin-bottom: clamp(1.5rem, 4vw, 2.75rem);
+  margin-bottom: clamp(1.125rem, 2vw, 1.75rem);
 }
 
 .feature-heading h2,
@@ -95,68 +101,20 @@
 
 .feature-notes article {
   border-top: 1px solid #bcb0ca;
-  padding-top: 1rem;
+  padding-top: .75rem;
 }
 
-.feature-compare {
-  container-type: inline-size;
+.feature-notes article > :last-child {
+  margin-bottom: 0;
 }
 
-.feature-table {
-  overflow-x: auto;
-  border: 1px solid #d6d0d8;
-  border-radius: 1rem;
+.feature-offline .feature-heading {
+  flex-direction: column;
+  gap: .5rem;
 }
 
-.feature-table table {
-  border-collapse: collapse;
-  width: 100%;
-  min-width: 42rem;
-  table-layout: fixed;
-  text-align: left;
-  line-height: 1.45;
-}
-
-.feature-table caption {
-  padding: .75rem 1rem;
-  text-align: left;
-  font-size: .9rem;
-}
-
-.feature-table thead {
-  background: #eae2f4;
-}
-
-.feature-table th,
-.feature-table td {
-  border-top: 1px solid #d6d0d8;
-  padding: .85rem 1rem;
-  vertical-align: top;
-}
-
-.feature-table th:first-child {
-  width: 21%;
-}
-
-.feature-table th small {
-  display: block;
-  margin-top: .2rem;
-  font-size: .84em;
-  font-weight: 500;
-}
-
-.table-hint {
-  display: none;
-}
-
-.feature-sources {
-  margin-block: 1rem 0;
-  font-size: .9rem;
-  line-height: 1.6;
-}
-
-.feature-sources a {
-  color: inherit;
+.feature-offline .feature-heading > p {
+  max-width: 64ch;
 }
 
 .feature-install {
@@ -166,9 +124,8 @@
 .feature-install .wrap {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem 2rem;
+  align-items: center;
+  gap: .5rem clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .feature-dialog {
@@ -224,14 +181,7 @@
 
   .feature-notes {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-}
-
-@container (width < calc(42rem + 2px)) {
-  .table-hint {
-    display: block;
-    font-size: .9rem;
+    gap: 1rem;
   }
 }
 
@@ -242,6 +192,11 @@
 
   .feature-frames .frame {
     padding: 1rem 2rem;
+  }
+
+  .feature-install .wrap {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
