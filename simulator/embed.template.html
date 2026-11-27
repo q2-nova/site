@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Working Q2 wheel player</title>
+  <link rel="stylesheet" href="device.css"><link rel="stylesheet" href="embed.css">
+  <link rel="stylesheet" href="audio-control.css">
+  <script defer src="module.js"></script><script defer src="audio-samples.js"></script>
+  <script defer src="audio.js"></script><script defer src="audio-control.js"></script>
+  <script defer src="timezone.js"></script><script defer src="device.js"></script>
+  <script defer src="screen-map.js"></script>
+  <script defer src="route-planner.js"></script>
+  <script defer src="navigation.js"></script><script defer src="embed.js"></script>
+</head><body id="features-player">
+  <div class="device-slot">
+    <!-- packaged device -->
+    <button id="control" type="button" hidden>Resume tour</button>
+    <div class="audio-control">
+      <button type="button" id="audio-toggle" aria-label="Unmute" title="Unmute">
+        <svg class="speaker-icon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9h4l5-4v14l-5-4H3z"/>
+          <path class="muted-mark" d="m16 9 5 6m0-6-5 6"/>
+          <path class="sound-waves" d="M16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>
+        </svg>
+      </button>
+      <p class="audio-feedback" role="status" hidden>Audio couldn’t start. <button type="button" class="audio-retry">Retry audio</button></p>
+    </div>
+  </div>
+  <p class="sr-only" id="wheel-help">Use the wheel or arrow keys to scroll. Press Centre or Enter to select, Back or Escape to return, and Space to play or pause.<span class="tour-hint"> Using the player pauses the scroll tour.</span></p>
+  <script type="application/wasm" id="player-wasm"></script>
+</body></html>

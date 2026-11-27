@@ -1,0 +1,132 @@
+:root, body { background: transparent; color-scheme: dark; }
+html, body { margin: 0; width: 100%; height: 100%; min-height: 0; }
+body {
+  display: grid;
+  place-items: center;
+}
+
+/* Silver Q2, using the front proportions and finish shown by Shanling. */
+.player {
+  grid-area: auto;
+  position: relative;
+  width: min(72cqw, 51cqh, 365px);
+  aspect-ratio: 50 / 80;
+  margin: 0;
+  padding: 0;
+  align-self: center;
+  justify-self: center;
+  border: 1px solid #afb1b2;
+  border-radius: 26% / 16%;
+  background: linear-gradient(119deg, #e2e3e4, #f3f3f3 32%, #d9dadc 74%, #c6c8cb);
+  box-shadow: inset 1px 1px 2px #fff, inset -2px -2px 3px #50556138,
+    0 2px 0 #8d9095, 0 9px 18px #15141b3d;
+}
+/* Narrow embed panels can use almost their full height. Leave a clear
+   44px speaker target and its inset on either side of the centered device. */
+@media (max-height: 550px) and ((max-width: 440px) or (min-aspect-ratio: 6/5)) {
+  .player { width: min(60cqh, calc(94cqw - 96px), 365px); }
+}
+.player:focus-visible { outline: 3px solid #18152c; outline-offset: 4px; }
+
+.faceplate {
+  position: absolute;
+  inset: 2% 3.3% auto;
+  padding: 4%;
+  border: 0;
+  border-radius: 21% / 24.6%;
+  background: linear-gradient(150deg, #35373a, #171819 24%, #09090a 75%);
+  box-shadow: inset 0 1px 1px #ffffff52, 0 1px 2px #12131370;
+}
+.screen { border-radius: 20% / 23.44%; background: #080809; }
+.screen-message { gap: .2rem; padding: .25rem; font-size: clamp(.61rem, 3vw, .9rem); }
+.screen-status, .no-script { color: #fff; }
+.retry { min-height: 24px; padding: .2rem .55rem; }
+
+.wheel-area { position: absolute; inset: 55.6% 0 auto; padding: 0; }
+.wheel {
+  width: 66%;
+  background: radial-gradient(circle at 40% 30%, #2c2c2d, #222224 76%, #171719);
+  border-color: #242427;
+  box-shadow: inset 0 1px 2px #fff2, inset 0 -2px 4px #0005, 0 1px 1px #fff;
+}
+.wheel-button { min-width: 24px; min-height: 24px; color: #a6a7ab; }
+.back, .play { left: 50%; transform: translateX(-50%); }
+.prev, .next { top: 50%; transform: translateY(-50%); }
+.center {
+  inset: 31.5%;
+  width: 37%;
+  height: 37%;
+  border-color: #222225;
+  background: linear-gradient(143deg, #f8f8f8, #d5d6d7);
+  box-shadow: inset 0 1px 1px #fff, 0 1px 2px #0009;
+}
+.center:hover:not(:disabled) { background: #f9f9fa; }
+.center:active:not(:disabled) { background: #c4c6c9; }
+
+.back { font-size: 0; }
+.back::before {
+  content: "";
+  position: absolute;
+  left: 39%; top: 41%;
+  width: 26%; height: 16%;
+  border: 1.5px solid currentColor;
+  border-left: 0;
+  border-radius: 0 50% 50% 0;
+}
+.back::after {
+  content: "";
+  position: absolute;
+  left: 35%; top: 36%;
+  width: 9%; aspect-ratio: 1;
+  border: solid currentColor;
+  border-width: 1.5px 0 0 1.5px;
+  transform: rotate(-45deg);
+}
+.skip-icon, .play-icon { width: clamp(9px, 3.4vw, 18px); height: auto; aspect-ratio: 1.4; }
+.skip-icon { background: none; }
+.play-icon {
+  background: linear-gradient(currentColor, currentColor) 71% 50% / 1.5px 82% no-repeat,
+    linear-gradient(currentColor, currentColor) 96% 50% / 1.5px 82% no-repeat;
+}
+.skip-icon::before, .skip-icon::after, .play-icon::before {
+  top: 50%; left: 12%;
+  width: 36%; aspect-ratio: 1;
+  border: solid currentColor;
+  border-width: 1.5px 1.5px 0 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+.skip-icon::after { left: 44%; }
+.play-icon::before { left: 1%; }
+
+.step-controls { display: none; }
+
+/* Show the physical control that is moving the live screen. */
+.player[data-tour-input="Select"] .center,
+.player[data-tour-input="HoldCenter"] .center {
+  background: #c2d6dc;
+  box-shadow: inset 0 1px 4px #334b59a6, 0 0 0 2px #a6d8ea;
+}
+.player[data-tour-input="Back"] .back {
+  color: #e6f8ff;
+  background-color: #445862;
+  border-radius: 40%;
+}
+.player[data-tour-input="Up"] .wheel::after,
+.player[data-tour-input="Down"] .wheel::after {
+  content: "";
+  position: absolute;
+  inset: 3%;
+  pointer-events: none;
+  border: 3px solid transparent;
+  border-right-color: #b8dce7;
+  border-radius: 50%;
+  transform: rotate(var(--tour-angle, 0deg));
+}
+.player[data-tour-input="HoldCenter"] .center::after {
+  content: "";
+  position: absolute;
+  inset: 5%;
+  border-radius: 50%;
+  background: conic-gradient(#447e91 var(--tour-hold, 0turn), transparent 0);
+  mask: radial-gradient(closest-side, transparent calc(100% - 3px), black calc(100% - 2px));
+}

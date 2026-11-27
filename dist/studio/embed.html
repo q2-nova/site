@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Working Q2 wheel player</title>
+  <link rel="stylesheet" href="device.css"><link rel="stylesheet" href="embed.css">
+  <link rel="stylesheet" href="audio-control.css">
+  <script defer src="module.js"></script><script defer src="audio-samples.js"></script>
+  <script defer src="audio.js"></script><script defer src="audio-control.js"></script>
+  <script defer src="timezone.js"></script><script defer src="device.js"></script>
+  <script defer src="screen-map.js"></script>
+  <script defer src="route-planner.js"></script>
+  <script defer src="navigation.js"></script><script defer src="embed.js"></script>
+</head><body id="features-player">
+  <div class="device-slot">
+    <section class="player" aria-label="Q2 player" aria-describedby="wheel-help" tabindex="0">
+      <div class="faceplate">
+        <div class="screen">
+          <canvas width="375" height="320" role="img" aria-label="Q2 player screen"></canvas>
+          <div class="screen-message">
+            <p class="screen-status" role="status">Loading player…</p>
+            <button type="button" class="retry" hidden>Retry</button>
+          </div>
+          <noscript><p class="no-script">Enable JavaScript to run the player.</p></noscript>
+        </div>
+      </div>
+      <div class="wheel-area">
+        <div class="wheel">
+          <button class="wheel-button back" type="button" data-input="3" aria-label="Back" title="Back (Escape). Hold for Now Playing." disabled>MENU</button>
+          <button class="wheel-button prev" type="button" data-input="5" aria-label="Previous track" title="Previous track (Left arrow)" disabled><span class="skip-icon" aria-hidden="true"></span></button>
+          <button class="wheel-button next" type="button" data-input="6" aria-label="Next track" title="Next track (Right arrow)" disabled><span class="skip-icon" aria-hidden="true"></span></button>
+          <button class="wheel-button play" type="button" data-input="4" aria-label="Play or pause" title="Play or pause (Space)" disabled><span class="play-icon" aria-hidden="true"></span></button>
+          <button class="wheel-button center" type="button" data-input="2" aria-label="Select" title="Select (Enter). Hold for options." disabled></button>
+        </div>
+        <div class="step-controls" aria-label="Scroll controls" role="group">
+          <button type="button" data-input="0" aria-label="Scroll up" title="Scroll up (Up arrow)" disabled><span aria-hidden="true"></span></button>
+          <button type="button" data-input="1" aria-label="Scroll down" title="Scroll down (Down arrow)" disabled><span aria-hidden="true"></span></button>
+        </div>
+      </div>
+      <p class="sr-only" id="current-state" role="status" aria-atomic="true"></p>
+    </section>
+    <button id="control" type="button" hidden>Resume tour</button>
+    <div class="audio-control">
+      <button type="button" id="audio-toggle" aria-label="Unmute" title="Unmute">
+        <svg class="speaker-icon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9h4l5-4v14l-5-4H3z"/>
+          <path class="muted-mark" d="m16 9 5 6m0-6-5 6"/>
+          <path class="sound-waves" d="M16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>
+        </svg>
+      </button>
+      <p class="audio-feedback" role="status" hidden>Audio couldn’t start. <button type="button" class="audio-retry">Retry audio</button></p>
+    </div>
+  </div>
+  <p class="sr-only" id="wheel-help">Use the wheel or arrow keys to scroll. Press Centre or Enter to select, Back or Escape to return, and Space to play or pause.<span class="tour-hint"> Using the player pauses the scroll tour.</span></p>
+  <script type="application/wasm" id="player-wasm"></script>
+</body></html>

@@ -1,0 +1,3 @@
+# The embedded WebAssembly and audio clips are generated binaries transported as base64.
+dist/studio/module.js -diff
+dist/studio/audio-samples.js -diff

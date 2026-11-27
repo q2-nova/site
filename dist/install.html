@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" =""="" =""><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#191921">
+  <title>Install on a Shanling Q2 · Q2 Nova</title>
+  <meta name="description" content="Install Q2 Nova on a Shanling Q2 from microSD, join Wi-Fi and connect your Navidrome or Audiobookshelf library.">
+  <link rel="stylesheet" href="site.css"><link rel="stylesheet" href="install.css">
+<style id="vvvebjs-styles"></style></head>
+<body class="reference">
+<a class="skip" href="#main">Skip to installation instructions</a>
+<header class="site-header"><a class="site-brand" href="index.html"><span aria-hidden="true"></span>Q2 Nova</a><nav aria-label="Primary"><a href="index.html">Features</a><a href="demo.html">Demo</a><a href="install.html" aria-current="page">Install</a></nav></header>
+<main class="wrap install" id="main">
+  <header class="install-intro">
+    <div>
+      <h1>Try it out</h1>
+      <p class="install-summary">Install Q2 Nova using the Q2’s built-in updater. It's easy to return to stock or switch to another firmware.</p>
+      <nav class="install-links" aria-label="On this page"><a class="source-jump" href="#first-setup">First setup</a><a class="source-jump" href="#source">Source code</a></nav>
+
+    </div><aside class="release" aria-labelledby="release-title">
+        <p class="eyebrow" id="release-title">Q2 Nova v0.136</p>
+        <!-- At release, point this link at update.tar and publish its checksum below. -->
+        <a class="package-link" aria-describedby="package-note">update.tar</a>
+        <p id="package-note">SHA-256: <code>Pending release</code></p>
+
+      </aside>
+
+  </header>
+  <section class="instructions" aria-labelledby="steps">
+    <div><p class="eyebrow">From stock firmware</p><h2 id="steps">Install from <br>microSD.</h2></div>
+    <ol>
+      <li><h3>Mount the microSD card</h3><p>Mount your Q2's microSD over USB or directly with a card reader.</p></li>
+      <li><h3>Copy <code>update.tar</code> to the card</h3><p>Download the update.tar package and place it at the top level of the card, alongside its folders. Safely eject the card.</p></li>
+      <li><h3>Start the update</h3><p>On the stock player, open <strong>System settings → System Update → TF card update</strong> and confirm. Leave the card inserted and the player powered on until the Q2 restarts.</p></li>
+    </ol>
+  </section>
+  <section class="instructions setup" id="first-setup" aria-labelledby="setup-title">
+    <div>
+      <h2 id="setup-title">First setup</h2>
+      <p class="setup-intro">Use the wheel to enter URLs and credentials. For long addresses and passwords, you can also <a href="#card-config">edit the settings on a computer</a>.</p>
+    </div>
+    <div>
+      <ol>
+        <li><h3>Join Wi-Fi</h3><p>Open <strong>Settings → Connections → Wi-Fi</strong>. Turn Wi-Fi on, choose <strong>Scan</strong>, then select your network. Enter its password if prompted. Once connected, <strong>Connected To</strong> shows your network name and IP address.</p>
+          <details><summary>Using Tailscale?</summary><p>Open <strong>Settings → Connections → Tailscale</strong>, turn it on and choose <strong>Sign In</strong>. Use the link to continue sign in on your phone or computer. Approve the device in Tailscale's Admin Console if necessary.<br><br>You can now connect to your server by IP address or full tailnet name. MagicDNS is not currently supported.</p></details>
+        </li>
+        <li><h3>Connect to Navidrome</h3><p>Choose <strong>Set Up Server</strong> on the home screen. Enter the URL you use to open Navidrome under <strong>Address</strong>, then fill in <strong>User</strong> and <strong>Password</strong>. Choose <strong>Test Connection</strong>. Once it says <strong>Connected</strong>, open <strong>Music → Albums</strong> and select a track to play.</p><p>To change these details later, open <strong>Settings → Connections → Navidrome Server</strong>.</p></li>
+        <li><h3>Add books and podcasts <span>(optional)</span></h3><p>Open <strong>Settings → Connections → Audiobookshelf</strong>. Enter your server’s <strong>Address</strong>. In Audiobookshelf, generate an API key for your account and enter it on the Q2 under <strong>API Token</strong>. Choose <strong>Test Connection</strong>. When it shows <strong>Connected</strong>, select <strong>Sync Now</strong> to load your library.</p></li>
+      </ol>
+      <section id="card-config" class="card-config" aria-labelledby="config-title">
+        <h3 id="config-title">Edit the settings on a computer</h3>
+        <p>With the Q2 powered off, put its microSD card in a reader. Open <code>Q2Mainline/config.toml</code> in a text editor. The player creates this file on first startup with a writable card. Update the existing entries with your own details.</p>
+        <details><summary>Example config file</summary>
+        <p>If the Wi-Fi section contains <code>networks = []</code>, replace that line with the <code>[[wifi.networks]]</code> block below.</p>
+        <pre><code>[wifi]
+enabled = true
+
+[[wifi.networks]]
+ssid = "Your Wi-Fi name"
+psk = "Your Wi-Fi password"
+
+[server]
+url = "https://music.example.com"
+user = "Your Navidrome username"
+password = "Your Navidrome password"
+
+# Optional, for books and podcasts
+[audiobookshelf]
+url = "https://books.example.com"
+token = "Your Audiobookshelf API key"</code></pre>
+        </details>
+        <p>Save the file, safely eject the card and put it back in the Q2 before powering on. Use <strong>Test Connection</strong> in the server’s settings to check the result.</p>
+      </section>
+    </div>
+  </section>
+  <section class="source-section" id="source" aria-labelledby="source-title">
+    <div>
+      <h2 id="source-title">Source code</h2>
+      <p>Repository links will appear here as they become available.</p>
+    </div>
+    <dl class="source-repos">
+      <!-- Add each repository URL to its anchor when published. -->
+      <dt><a>q2-nova-app</a></dt>
+      <dd>The Q2 Nova streaming app.</dd>
+      <dt><a>q2-nova-kernel</a></dt>
+      <dd>The X2000 SoC port to mainline Linux 7.3.</dd>
+      <dt><a>q2-nova-os</a></dt>
+      <dd>The custom Buildroot operating system for the Shanling Q2.</dd>
+      <dt><a>q2-nova-toolchain</a></dt>
+      <dd>LLVM, Clang and Rust with optimizations for the X2000 SoC.</dd>
+      <dt><a>q2-nova-qemu</a></dt>
+      <dd>A QEMU emulator for the triple-core X2000 SoC, with a Q2 device model and a simulated power model.</dd>
+      <dt><a>q2-nova-factory</a></dt>
+      <dd>Tools for coding agents to customize software for the Q2.</dd>
+    </dl>
+  </section>
+</main>
+<footer class="site-footer"><a href="index.html">Q2 Nova</a><div><a href="index.html#compare">Compare the firmware →</a></div></footer>
+
+</body></html>

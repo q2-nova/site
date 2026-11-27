@@ -1,0 +1,10 @@
+Q2 browser demo audio samples
+
+The samples are original four-bar arrangements and original fictional spoken
+excerpts produced for the Q2 browser demo. The spoken samples use Carnegie
+Mellon Flite voices slt, rms, and awb. The samples repeat on the simulated
+player timeline, with one music sample per album and a shared radio sample.
+The library metadata names the example media displayed by the simulator.
+The samples contain no publisher recordings or live broadcasts.
+
+Original samples and synthesis script: web-demo/audio/ in the Q2 browser demo.
