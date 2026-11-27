@@ -12,6 +12,12 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
 
 The three pages and their stylesheets live in `dist/`. That directory can also be opened in a visual HTML editor or deployed to a static host. The bundled simulator, screenshots and audio previews work offline.
 
+## GitHub Pages
+
+The project site URL is `https://q2-nova.github.io/site/`. The deployment workflow packages the contents of `dist/`, including the bundled player.
+
+After the first push to `main`, choose **GitHub Actions** under **Settings → Pages → Build and deployment → Source**. To publish a release, open **Actions → Publish site to GitHub Pages → Run workflow** and select `main`.
+
 ## Edit the player
 
 The Features player opens at the main menu. In the Demo, page scroll drives the wheel and button presses between chapters. Visitors can take control of the device, then choose **Resume tour** to return to their place. Playback starts muted. The speaker beside the lower-right edge of the chassis controls sound on both pages.
